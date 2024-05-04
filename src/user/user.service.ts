@@ -23,13 +23,7 @@ export class UserService {
   constructor(@InjectModel('User') private userModel: Model<User>) { }
 
 
-  async register(createUserDto: CreateUserDto): Promise<{
-    userId: string;
-    email: string;
-    fullName: string;
-    roles: string[];
-    token: string
-  }> {
+  async register(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const createdUser = new this.userModel({
       ...createUserDto,
@@ -41,11 +35,20 @@ export class UserService {
         { userId: savedUser.id, email: savedUser.email }, process.env.MY_SECRECT_KEY,
         { expiresIn: process.env.TOKEN_DURATION || '48h' });
       return {
-        userId: savedUser.id,
-        email: savedUser.email,
-        fullName: savedUser.fullName,
-        roles: savedUser.roles,
-        token
+        jwt: token,
+        user: {
+          id: savedUser.id,
+          username: savedUser.userName,
+          email: savedUser.email,
+          provider: savedUser.provider,
+          confirmed: savedUser.confirmed,
+          blocked: savedUser.blocked,
+          createdAt: savedUser.createdAt,
+          updatedAt: savedUser.updatedAt,
+          firstname: null,
+          lastname: null
+  
+        }
       };
     } catch (error) {
 
@@ -54,13 +57,7 @@ export class UserService {
     }
   }
 
-  async login(loginUserDto: LoginUserDto): Promise<{
-    userId: string;
-    email: string;
-    fullName: string;
-    roles: string[];
-    token: string
-  }> {
+  async login(loginUserDto: LoginUserDto) {
     const { identifier : email, password } = loginUserDto;
     const user = await this.userModel.findOne({ email }).select('+password');
     if (!user || !(await user.checkPassword(password))) {
@@ -68,13 +65,24 @@ export class UserService {
     }
 
     const token = jwt.sign({ userId: user.id }, process.env.MY_SECRECT_KEY, { expiresIn: process.env.TOKEN_DURATION || '48h' });
+console.log(user);
+
     return {
-      userId: user.id,
-      email: user.email,
-      fullName: user.fullName,
-      roles: user.roles,
-      token
-    };
+      jwt: token,
+      user: {
+        id: user.id,
+        username: user.userName,
+        email: user.email,
+        provider: user.provider,
+        confirmed: user.confirmed,
+        blocked: user.blocked,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+        firstname: null,
+        lastname: null
+
+      }
+    }
   
   }
 
@@ -87,7 +95,7 @@ export class UserService {
       return {
         userId: user.id,
         email: user.email,
-        fullName: user.fullName,
+        fullName: user.userName,
         roles: user.roles,
         token: newToken
       };
