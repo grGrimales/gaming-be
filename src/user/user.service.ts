@@ -35,6 +35,7 @@ export class UserService {
         { userId: savedUser.id, email: savedUser.email }, process.env.MY_SECRECT_KEY,
         { expiresIn: process.env.TOKEN_DURATION || '48h' });
       return {
+        status:200,
         jwt: token,
         user: {
           id: savedUser.id,
