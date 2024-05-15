@@ -14,6 +14,12 @@ export class UserController {
     return this.userService.register(createUserDto);
   }
 
+
+  @Post('local/register')
+  getMe(@Body() createUserDto: CreateUserDto) {
+    return this.userService.register(createUserDto);
+  }
+
   @Post('local')
   login(@Body() loginUserDto: LoginUserDto) {
     return this.userService.login(loginUserDto);

@@ -36,6 +36,7 @@ export class UserService {
         { expiresIn: process.env.TOKEN_DURATION || '48h' });
       return {
         jwt: token,
+        status: 200,
         user: {
           id: savedUser.id,
           username: savedUser.userName,
@@ -65,10 +66,10 @@ export class UserService {
     }
 
     const token = jwt.sign({ userId: user.id }, process.env.MY_SECRECT_KEY, { expiresIn: process.env.TOKEN_DURATION || '48h' });
-console.log(user);
 
     return {
       jwt: token,
+      status: 200,
       user: {
         id: user.id,
         username: user.userName,

@@ -7,11 +7,10 @@ async function bootstrap() {
 
   dotenv.config();
 
-
   const app = await NestFactory.create(AppModule);
     // Enable CORS
     const corsOptions = {
-      origin: ['http://localhost:4200', 'http://localhost:3000', 'https://listen-with-me-app.vercel.app'],
+      origin: ['http://localhost:3000', 'http://localhost:4000', 'https://listen-with-me-app.vercel.app'],
       credentials: true,
     };
 
