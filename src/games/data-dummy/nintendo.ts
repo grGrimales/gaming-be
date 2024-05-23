@@ -17,8 +17,8 @@ export const nintendoBySlugDummy = {
 					"data": {
 						"id": 3,
 						"attributes": {
-							"title": "Xbox",
-							"slug": "xbox",
+							"title": "Nintendo",
+							"slug": "nintendo",
 							"order": 2,
 							"createdAt": "2023-09-13T09:44:33.002Z",
 							"updatedAt": "2023-09-13T09:44:33.991Z",

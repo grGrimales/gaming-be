@@ -2,15 +2,19 @@ import { Injectable } from '@nestjs/common';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
 import { xboxBySlugDummy, playstationBySlugDummy, pcBySlugDummy, nintendoBySlugDummy } from '../games/data-dummy';
-import { stat } from 'fs';
 import { PlatformService } from '../platform/platform.service';
+import { Game } from './entities/game.entity';
+import { InjectModel } from '@nestjs/mongoose';
+import mongoose, { Model } from 'mongoose';
+import { count } from 'console';
 
 @Injectable()
 export class GamesService {
 
 
   constructor(
-    private platformService: PlatformService
+    private platformService: PlatformService,
+    @InjectModel('Game') private readonly GameModel: Model<Game>,
   ) {
   }
 
@@ -18,12 +22,17 @@ export class GamesService {
     return 'This action adds a new game';
   }
 
-  findAll() {
-    return `This action returns all games`;
-  }
 
 
-  findAllBySlug(slug: string) {
+  async findGamesByPlatform(slug: string) {
+
+    const games = await this.GameModel.find({
+      'attributes.platform.data.attributes.slug': slug
+    }).exec();
+
+
+    return games;
+ 
 
     //const data = this.findAll().data;
 
@@ -57,24 +66,16 @@ export class GamesService {
 
   }
 
-  findOneBySlug(slug: string) {
+  async findOneBySlug(slug: string) {
 
-    // Unir toda la data dummy xboxBySlugDummy + playstationBySlugDummy + pcBySlugDummy + nintendoBySlugDummy;
-
-    const data = xboxBySlugDummy.data.concat(playstationBySlugDummy.data, pcBySlugDummy.data, nintendoBySlugDummy.data);
-
-    const game = data.find((game) => game.attributes.slug === slug);
-
-    console.log(game)
-
-    const platformSlug = game.attributes.platform.data.attributes.slug;
-
-    const platform = this.platformService.getPlatformBySlug(platformSlug);
+    const game = await this.GameModel.findOne({
+      'attributes.slug': slug
+    }).exec();
 
     return {
       status: 200,
       data: game,
-      platform
+      
     }
 
   }

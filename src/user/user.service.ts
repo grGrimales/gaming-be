@@ -37,7 +37,6 @@ export class UserService {
       return {
         status:200,
         jwt: token,
-        status: 200,
         user: {
           id: savedUser.id,
           username: savedUser.userName,
@@ -71,7 +70,6 @@ export class UserService {
     return {
       status:200,
       jwt: token,
-      status: 200,
       user: {
         id: user.id,
         username: user.userName,

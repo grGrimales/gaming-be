@@ -8,17 +8,18 @@ async function bootstrap() {
   dotenv.config();
 
   const app = await NestFactory.create(AppModule);
-    // Enable CORS
-    const corsOptions = {
-      origin: ['http://localhost:3000', 'http://localhost:4000', 'https://listen-with-me-app.vercel.app'],
-      credentials: true,
-    };
+  // Enable CORS
+  const corsOptions = {
+    origin: ['http://localhost:3000', 'http://localhost:4000', 'https://listen-with-me-app.vercel.app'],
+    credentials: true,
+  };
 
   app.enableCors(
     corsOptions,
   );
   // Enable Validation
-    app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe());
+
 
   await app.listen(3000);
 }

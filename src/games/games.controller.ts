@@ -10,8 +10,8 @@ export class GamesController {
 
   
   @Get(':slug')
-  findAllBySlug(@Param('slug') slug: string) {
-    return this.gamesService.findAllBySlug(slug);
+  findGamesByPlatform(@Param('slug') slug: string) {
+    return this.gamesService.findGamesByPlatform(slug);
   }
 
 
@@ -30,10 +30,7 @@ export class GamesController {
     return this.gamesService.create(createGameDto);
   }
 
-  @Get()
-  findAll() {
-    return this.gamesService.findAll();
-  }
+
 
 
 }

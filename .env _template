@@ -1,0 +1,10 @@
+CLOUDINARY_CLOUD_NAME=dcxto1nnl
+CLOUDINARY_API_KEY=399923611943445
+CLOUDINARY_API_SECRET=fhk6OkNFHZAazk6yyTWm1DhOEcU
+
+
+MY_SECRECT_KEY=dnfnachduiwjmodw,podw3473845
+TOKEN_DURATION=548h
+
+MONGO_URI=mongodb://test:123456@general_mongo-db:27017/gaming-db-test?authSource=admin
+
