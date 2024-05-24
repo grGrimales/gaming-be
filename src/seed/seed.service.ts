@@ -7,6 +7,8 @@ import mongoose, { Model } from 'mongoose';
 import { UserService } from '../user/user.service';
 import { Game } from '../games/entities/game.entity';
 import { nintendoBySlugDummy, pcBySlugDummy, playstationBySlugDummy, xboxBySlugDummy } from '../games/data-dummy';
+import { Platform } from '../platform/entities/platform.entity';
+import { platformData } from 'src/platform/data-dummy/platform';
 
 @Injectable()
 export class SeedService {
@@ -16,12 +18,31 @@ export class SeedService {
 
     @InjectModel('Game') private readonly GameModel: Model<Game>,
 
+    @InjectModel('Platform') private readonly PlatformModel: Model<Platform>,
+
+
 
 
     private readonly userService: UserService,
   ) { }
 
   async create() {
+
+
+    // Delete all platforms
+
+    await this.PlatformModel.deleteMany({}).exec();
+
+    // Create promises array for platforms
+    platformData.map(async (platform) => {
+      return await this.PlatformModel.create(platform);
+    }
+    );
+
+    // execute promises for platforms
+    await Promise.all(platformData).then((values) => {
+      console.log(values);
+    });
 
     // Delete all users
     await this.userModel.deleteMany({}).exec();
@@ -53,15 +74,10 @@ export class SeedService {
     });
 
 
+
+
     // Delete all games
     await this.GameModel.deleteMany({}).exec();
-    // return playstationBySlugDummy;
-    // break;
-    // case "pc":
-    // return pcBySlugDummy;
-    // break;
-    // case "nintendo":
-    //return nintendoBySlugDummy;
 
 
     // Create new games
