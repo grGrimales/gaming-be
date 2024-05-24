@@ -8,7 +8,7 @@ import { UserService } from '../user/user.service';
 import { Game } from '../games/entities/game.entity';
 import { nintendoBySlugDummy, pcBySlugDummy, playstationBySlugDummy, xboxBySlugDummy } from '../games/data-dummy';
 import { Platform } from '../platform/entities/platform.entity';
-import { platformData } from 'src/platform/data-dummy/platform';
+import { platformData } from '../platform/data-dummy/platform';
 
 @Injectable()
 export class SeedService {
