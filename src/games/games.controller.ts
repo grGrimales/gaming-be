@@ -1,7 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { GamesService } from './games.service';
-import { CreateGameDto } from './dto/create-game.dto';
-import { UpdateGameDto } from './dto/update-game.dto';
+import { PaginationDTO } from '../commons/dto/PaginationDTO';
 
 @Controller('games')
 export class GamesController {
@@ -10,8 +9,12 @@ export class GamesController {
 
   
   @Get(':slug')
-  findGamesByPlatform(@Param('slug') slug: string) {
-    return this.gamesService.findGamesByPlatform(slug);
+  findGamesByPlatform(
+    @Param('slug') slug: string,
+    @Query() paginationDTO: PaginationDTO
+    
+    ) {
+    return this.gamesService.findGamesByPlatform(slug, paginationDTO);
   }
 
 
@@ -25,10 +28,6 @@ export class GamesController {
 
 
 
-  @Post()
-  create(@Body() createGameDto: CreateGameDto) {
-    return this.gamesService.create(createGameDto);
-  }
 
 
 
