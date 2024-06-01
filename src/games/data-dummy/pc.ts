@@ -22,7 +22,8 @@ export const pcBySlugDummy = {
 							"order": 4,
 							"createdAt": "2023-09-13T09:45:13.919Z",
 							"updatedAt": "2023-09-13T09:45:32.290Z",
-							"publishedAt": "2023-09-13T09:45:32.284Z"
+							"publishedAt": "2023-09-13T09:45:32.284Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598041/icon_pc_7588583e69.svg",
 						}
 					}
 				},
@@ -121,7 +122,8 @@ export const pcBySlugDummy = {
 							"order": 4,
 							"createdAt": "2023-09-13T09:45:13.919Z",
 							"updatedAt": "2023-09-13T09:45:32.290Z",
-							"publishedAt": "2023-09-13T09:45:32.284Z"
+							"publishedAt": "2023-09-13T09:45:32.284Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598041/icon_pc_7588583e69.svg",
 						}
 					}
 				},
@@ -238,7 +240,8 @@ export const pcBySlugDummy = {
 							"order": 4,
 							"createdAt": "2023-09-13T09:45:13.919Z",
 							"updatedAt": "2023-09-13T09:45:32.290Z",
-							"publishedAt": "2023-09-13T09:45:32.284Z"
+							"publishedAt": "2023-09-13T09:45:32.284Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598041/icon_pc_7588583e69.svg",
 						}
 					}
 				},

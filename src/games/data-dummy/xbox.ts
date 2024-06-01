@@ -26,7 +26,8 @@ export const xboxBySlugDummy = {
 							"order": 2,
 							"createdAt": "2023-09-13T09:44:33.002Z",
 							"updatedAt": "2023-09-13T09:44:33.991Z",
-							"publishedAt": "2023-09-13T09:44:33.986Z"
+							"publishedAt": "2023-09-13T09:44:33.986Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598263/icon_xbx_c398c71fa2.svg",
 						}
 					}
 				},
@@ -140,7 +141,9 @@ export const xboxBySlugDummy = {
 							"order": 2,
 							"createdAt": "2023-09-13T09:44:33.002Z",
 							"updatedAt": "2023-09-13T09:44:33.991Z",
-							"publishedAt": "2023-09-13T09:44:33.986Z"
+							"publishedAt": "2023-09-13T09:44:33.986Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598263/icon_xbx_c398c71fa2.svg",
+
 						}
 					}
 				},
@@ -248,7 +251,9 @@ export const xboxBySlugDummy = {
 							"order": 2,
 							"createdAt": "2023-09-13T09:44:33.002Z",
 							"updatedAt": "2023-09-13T09:44:33.991Z",
-							"publishedAt": "2023-09-13T09:44:33.986Z"
+							"publishedAt": "2023-09-13T09:44:33.986Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598263/icon_xbx_c398c71fa2.svg",
+
 						}
 					}
 				},

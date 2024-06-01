@@ -22,7 +22,8 @@ export const nintendoBySlugDummy = {
 							"order": 2,
 							"createdAt": "2023-09-13T09:44:33.002Z",
 							"updatedAt": "2023-09-13T09:44:33.991Z",
-							"publishedAt": "2023-09-13T09:44:33.986Z"
+							"publishedAt": "2023-09-13T09:44:33.986Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598170/icon_swt_df1048147d.svg",
 						}
 					}
 				},

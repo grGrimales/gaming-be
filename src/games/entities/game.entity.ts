@@ -104,6 +104,7 @@
 
 */
 
+import { url } from 'inspector';
 import mongoose, { Schema, Document } from 'mongoose';
 
 
@@ -130,6 +131,7 @@ export interface Game extends Document {
                     createdAt: Date,
                     updatedAt: Date,
                     publishedAt: Date,
+                    url: string,
                 }
             }
         },
@@ -192,6 +194,7 @@ export const GameSchema: Schema = new Schema({
                     createdAt: { type: Date, required: true },
                     updatedAt: { type: Date, required: true },
                     publishedAt: { type: Date, required: true },
+                    url: { type: String, required: true },
                 }
             }
         },

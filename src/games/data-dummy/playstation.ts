@@ -26,6 +26,7 @@ export const playstationBySlugDummy = {
 							"createdAt": "2023-09-13T09:40:59.953Z",
 							"updatedAt": "2023-09-13T09:41:08.414Z",
 							"publishedAt": "2023-09-13T09:41:08.408Z",
+							"url": "https://res.cloudinary.com/dcxto1nnl/image/upload/v1694598041/icon_pc_7588583e69.svg",
 							"icon": {
 								"data": {
 									"id": 2,
